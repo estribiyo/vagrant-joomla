@@ -1,0 +1,6 @@
+synced_folders:
+  /var/www/test: ./../webs/test
+
+mount_options: 
+  - dmode=777
+  - fmode=777
