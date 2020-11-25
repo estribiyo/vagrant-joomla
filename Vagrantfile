@@ -77,4 +77,9 @@ Vagrant.configure("2") do |config|
     node.vm.network :private_network, ip: '33.33.33.58'
     node.hostmanager.aliases = %w(webgrind.joomla.box phpmyadmin.joomla.box)
   end
+  if Vagrant.has_plugin? "vagrant-vbguest"
+    config.vbguest.no_install  = true
+    config.vbguest.auto_update = false
+    config.vbguest.no_remote   = true
+  end
 end
