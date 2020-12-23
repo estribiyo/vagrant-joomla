@@ -75,6 +75,14 @@ Vagrant.configure("2") do |config|
   config.vm.define 'default' do |node|
     node.vm.hostname = 'joomla.box'
     node.vm.network :private_network, ip: '33.33.33.58'
+    node.vm.provision "ansible_local" do |ansible|
+      ansible.compatibility_mode = "2.0"
+      ansible.install_mode = "pip_args_only"
+      ansible.pip_args = "-r /vagrant/requirements.txt"
+      ansible.become = true
+      ansible.config_file = "ansible.cfg"
+      ansible.playbook = "joomla.yml"
+    end    
     node.hostmanager.aliases = %w(webgrind.joomla.box phpmyadmin.joomla.box)
   end
   if Vagrant.has_plugin? "vagrant-vbguest"

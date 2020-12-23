@@ -1,0 +1,8 @@
+---
+- name: Joomla Tools
+  hosts: default
+  tags: [joomlatools_install]
+  roles:
+    - joomla_box
+
+...

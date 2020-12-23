@@ -1,0 +1,7 @@
+- name: Increase proxy timeout to {{ proxy_timeout }}ms
+  debug:
+    var: proxy_timeout
+# https://mamchenkov.net/wordpress/2016/08/04/504-gateway-timeout-error-on-nginx-fastcgi-php-fpm/#:~:text=%E2%80%9C504%20Gateway%20Timeout%E2%80%9D%20error%20is,was%20willing%20to%20wait%20for.
+# Increase PHP maximum execution time in /etc/php.ini: max_execution_time = 300
+# Increase PHP-FPM request terminate timeout in the pool configuration (/etc/php-fpm.d/www.conf): request_terminate_timeout = 300
+# Increase Nginx FastCGI read timeout (in /etc/nginx/nginx.conf): fastcgi_read_timeout 300;    
