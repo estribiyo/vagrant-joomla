@@ -2,8 +2,13 @@
   command: /home/vagrant/box/box php:ini max_execution_time {{ php_max_execution_time }}
   become: yes
   become_user: vagrant
+  register: output
+- debug:
+    var: output
 - name: Set PHP max_input_time={{ php_max_input_time }}
   command: /home/vagrant/box/box php:ini max_input_time {{ php_max_input_time }}
   become: yes
   become_user: vagrant
-  
+  register: output
+- debug:
+    var: output
